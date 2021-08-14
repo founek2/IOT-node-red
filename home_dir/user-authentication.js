@@ -1,8 +1,12 @@
+require('dotenv').config();
+
 const fetch = require('node-fetch');
 
-const URL = 'https://v3.iotplatforma.cloud';
+const URL = process.env.PLATFORM_URL;
 const AUTH_TYPE_PATH = '/api/user/martas?attribute=authType';
 const LOGIN_PATH = '/api/authorization';
+
+if (!URL || URL === '') throw new Error('env PLATFORM_URL must be specified');
 
 module.exports = {
     type: 'credentials',
