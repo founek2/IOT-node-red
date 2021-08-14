@@ -14,9 +14,7 @@ module.exports = {
         return new Promise(async function (resolve) {
             // Do whatever work is needed to check username is a valid
             // user.
-            const res = await fetch(
-                URL + `/api/user/${username}?attribute=authType`
-            );
+            const res = await fetch(URL + `/api/user/${username}?attribute=authType`);
             const body = await res.json();
             if (body.authTypes.some((type) => type === 'passwd')) {
                 // Resolve with the user object. It must contain
@@ -50,11 +48,7 @@ module.exports = {
             if (res.status !== 200) return resolve(null);
 
             const body = await res.json();
-            if (
-                body.user.groups.some(
-                    (group) => group === 'admin' || group === 'root'
-                )
-            ) {
+            if (body.user.groups.some((group) => group === 'admin' || group === 'root')) {
                 // Resolve with the user object. Equivalent to having
                 // called users(username);
                 var user = { username: username, permissions: '*' };
