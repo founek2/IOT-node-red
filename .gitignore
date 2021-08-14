@@ -1,0 +1,5 @@
+node_modules
+
+/home_dir/*
+!/home_dir/settings.js
+!/home_dir/user-authentication.js
